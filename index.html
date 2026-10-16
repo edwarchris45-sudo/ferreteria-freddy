@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>Ferretería Freddy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2958a8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 48 52%27%3E%3Cpath d=%27M24 2l20 11v26L24 50 4 39V13z%27 fill=%27%23f8dc08%27/%3E%3Cpath d=%27M14 16h20v7H22v5h9v6h-9v8h-8z%27 fill=%27%232958a8%27/%3E%3C/svg%3E">
+<meta name="description" content="Ferretería Freddy: plomería, cerámica y baño, pintura, electricidad, piscina y tornillos.">
+<style>
+:root{--blue:#2958a8;--navy:#101c34;--yellow:#f8dc08;--bg:#fbfcfd;--card:#fff;--tx:#101c34;--mut:#5f6b7a;--bd:#e3e9f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#141d30;--tx:#e8eef8;--mut:#9aa8bf;--bd:#26334a;--navy:#080e1c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx)}
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:8px 14px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;line-height:1;text-decoration:none;color:#fff}
+.logo img,.logo svg{height:38px;width:auto}.logo small{display:block;color:var(--yellow);font-size:11px;letter-spacing:2px}
+.sp{flex:1}
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:9px 14px;background:var(--blue);color:#fff;font-weight:600}
+button.y{background:var(--yellow);color:#1b2a33}button.g{background:transparent;border:1px solid var(--bd);color:var(--tx)}button.r{background:#d64545}
+.nav{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--bd);scrollbar-width:none}
+.nav a{white-space:nowrap;padding:7px 13px;border-radius:99px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);text-decoration:none;font-size:14px}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:34px 18px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:clamp(26px,6vw,42px)}.hero p{margin:0 auto 16px;max-width:520px;opacity:.95}
+main{max-width:1100px;margin:auto;padding:14px}
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;margin:6px 0 4px}
+h2{display:flex;align-items:center;gap:8px;margin:26px 0 10px;font-size:22px}h2 i{font-style:normal}
+h2.of{color:#b87d00}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.ph{aspect-ratio:4/3;background:linear-gradient(135deg,#e3f3fb,#fff7dc);display:grid;place-items:center;font-size:44px}
+.ph img{width:100%;height:100%;object-fit:cover}
+.card .b{padding:10px;display:flex;flex-direction:column;gap:6px;flex:1}.card h3{margin:0;font-size:15px}
+.pr{font-weight:800;color:var(--blue);font-size:17px}.old{text-decoration:line-through;color:var(--mut);font-size:13px;margin-left:6px;font-weight:400}
+.tag{position:absolute;top:8px;left:8px;background:var(--yellow);color:#1b2a33;font-weight:800;font-size:12px;padding:3px 9px;border-radius:99px}
+.card button{margin-top:auto;padding:8px}
+.ctl{display:flex;gap:6px}.ctl button{flex:1;padding:6px;font-size:12px}
+.empty{color:var(--mut);padding:8px 2px}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:25;box-shadow:0 4px 14px #0004;padding:13px 18px;border-radius:99px}
+.panel{position:fixed;inset:0;z-index:40;background:#0008;display:none;justify-content:flex-end}.panel.on{display:flex}
+.sheet{width:min(440px,100%);height:100%;overflow:auto;background:var(--bg);padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+.sheet h3{margin:18px 0 8px}
+label{display:block;font-size:13px;color:var(--mut);margin:8px 0 3px}
+input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit}
+.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.row .n{flex:0}
+.li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.qty{display:flex;gap:6px;align-items:center}.qty button{padding:2px 10px}
+.ads{max-width:1100px;margin:14px auto 0;padding:0 14px}.adh{font-size:12px;color:var(--mut);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase}.adg{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.ad{flex:0 0 min(300px,82%);scroll-snap-align:start;display:flex;gap:10px;align-items:center;background:var(--card);border:1px dashed var(--yellow);border-radius:12px;padding:10px;color:var(--tx);text-decoration:none}.ad img{width:64px;height:64px;object-fit:cover;border-radius:8px}.ad b{display:block}.ad span{font-size:13px;color:var(--mut)}
+footer{background:var(--navy);color:#cfe6f2;text-align:center;padding:22px 14px;margin-top:30px;font-size:14px}footer b{color:var(--yellow)}
+.note{font-size:12px;color:var(--mut)}
+
+.lb{position:fixed;inset:0;z-index:60;background:#000d;display:none;place-items:center;padding:10px}.lb.on{display:grid}.lb img{max-width:100%;max-height:92vh;border-radius:8px}
+.ph img,.ad img{cursor:zoom-in}.hp{position:absolute;left:-9999px}.tb{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.done{opacity:.5}.sm{font-size:13px}
+.toast{position:fixed;left:50%;bottom:calc(80px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:99px;z-index:70;opacity:0;pointer-events:none;transition:.25s;font-size:14px;box-shadow:0 4px 14px #0005}.toast.on{opacity:1;transform:translateX(-50%)}
+.demo{background:var(--yellow);color:#1b2a33;text-align:center;font-size:13px;padding:6px 10px;font-weight:600}
+
+/* ===== Diseño estilo referencia ===== */
+header{background:var(--blue);flex-wrap:wrap;padding:12px 18px}
+.sbar{flex:1 1 280px;max-width:520px;order:2;position:relative;margin:0 auto}
+.sbar .search{margin:0;border:0;border-radius:99px;padding:11px 48px 11px 18px}
+.sbar b{position:absolute;right:4px;top:4px;width:34px;height:34px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:14px;pointer-events:none}
+@media(max-width:640px){.sbar{order:3;flex-basis:100%;max-width:none}}
+.nav{background:var(--card);gap:24px;padding:13px 20px;border:0;box-shadow:0 1px 6px #0002;justify-content:center}
+.nav a{background:none;border:0;border-radius:0;padding:3px 0;font-weight:600;border-bottom:2px solid transparent}.nav a:hover{border-color:var(--yellow)}
+.hero{text-align:left;padding:72px 8vw 96px;background:linear-gradient(100deg,var(--navy),transparent 140%),repeating-linear-gradient(var(--sa,45deg),var(--blue) 0 22px,#ffffff10 22px 44px)}
+.hero h1{max-width:560px;font-size:clamp(30px,6vw,54px);line-height:1.1}.hero p{margin:0 0 18px;max-width:480px}.hero button{padding:12px 24px;border-radius:6px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));max-width:900px;margin:-48px 14px 0;position:relative;z-index:2;box-shadow:0 10px 26px #0003;border-radius:8px;overflow:hidden}
+@media(min-width:960px){.feat{margin-left:auto;margin-right:auto}}
+.feat div{padding:20px;background:var(--card)}.feat div:nth-child(2){background:var(--yellow);color:#1b2a33}.feat div:nth-child(3){background:var(--navy);color:#fff}
+.feat b{display:block;margin-bottom:4px}.feat span{font-size:13px;opacity:.85}
+main h2{flex-direction:column;gap:8px;text-align:center;font-size:24px;margin:40px 0 18px}main h2:after{content:"";width:48px;height:3px;background:var(--yellow)}
+.card{border:0;border-radius:6px;box-shadow:0 2px 12px #0001}.ph{background:#f4f8fc;aspect-ratio:1}.card h3{font-size:13px;font-weight:500;color:var(--mut)}.pr{color:var(--tx);font-size:15px}
+.card button{background:var(--blue)}
+.ads{max-width:none;background:var(--navy);margin:40px 0 0;padding:36px 16px;text-align:center}.adh{color:#fff;font-size:22px;font-weight:700;text-transform:none;letter-spacing:0;margin-bottom:16px}.adg{max-width:1100px;margin:auto;text-align:left}
+footer{background:var(--navy);margin-top:0;padding:28px 14px}
+.nav{justify-content:flex-start}@media(min-width:900px){.nav{justify-content:center}}
+header .sp{display:none}header>button{order:3}.sbar{margin:0 auto}
+@media(max-width:640px){.sbar{order:4}header .logo{margin-right:auto}}
+/* ===== Movimiento e interacción ===== */
+.hero h1,.hero p,.hero button{transition:opacity .35s,transform .35s}.hero.out h1,.hero.out p,.hero.out button{opacity:0;transform:translateY(12px)}
+.dots{position:absolute;left:8vw;bottom:62px;display:flex;gap:8px}.dots i{width:10px;height:10px;border-radius:99px;background:#fff6;cursor:pointer;transition:.3s}.dots i.on{width:28px;background:var(--yellow)}
+.nav button.cdb{white-space:nowrap;padding:8px 14px;border-radius:6px;flex:0 0 auto}.nav a.act{border-color:var(--yellow);color:var(--blue)}
+.ddm{position:fixed;z-index:30;background:var(--card);border-radius:8px;box-shadow:0 10px 30px #0004;min-width:220px;padding:6px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:.2s}.ddm.on{opacity:1;pointer-events:auto;transform:none}
+.ddm a{display:block;padding:10px 12px;border-radius:6px;color:var(--tx);text-decoration:none}.ddm a:hover{background:var(--bg);color:var(--blue)}
+.card{transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-5px);box-shadow:0 12px 26px #0002}.ph{overflow:hidden}.ph img{transition:transform .4s}.card:hover .ph img{transform:scale(1.08)}
+.card.rv{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s,box-shadow .25s}.card.rv.in{opacity:1;transform:none}.card.rv.in:hover{transform:translateY(-5px)}
+button:active{transform:scale(.96)}.feat div{transition:transform .25s}.feat div:hover{transform:translateY(-4px)}
+.adg{scroll-snap-type:none;scrollbar-width:none}.ad{transition:transform .25s}.ad:hover{transform:scale(1.04)}
+header{transition:box-shadow .3s}header.sc{box-shadow:0 4px 18px #0004}
+@keyframes bump{40%{transform:scale(1.18)}}.bump{animation:bump .4s}
+.up{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:25;width:44px;height:44px;border-radius:50%;padding:0;background:var(--navy);opacity:0;pointer-events:none;transition:.3s}.up.on{opacity:1;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card.rv{opacity:1;transform:none}}
+
+/* ===== Versión PC ===== */
+.hero{position:relative}.card button{white-space:nowrap;font-size:13px}
+#side{display:none}
+@media(min-width:1000px){
+ header{padding:14px max(24px,calc((100vw - 1280px)/2))}
+ .nav{justify-content:flex-start;padding-left:max(24px,calc((100vw - 1280px)/2));padding-right:24px}
+ .hero{min-height:480px;padding:120px max(8vw,calc((100vw - 1280px)/2 + 24px)) 140px}.hero h1{font-size:60px;max-width:640px}.hero p{font-size:18px}
+ .dots{left:max(8vw,calc((100vw - 1280px)/2 + 24px));bottom:84px}
+ .feat{max-width:1100px;margin-top:-64px}
+ main{max-width:1280px;display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start;padding:24px}
+ #side{display:block;position:sticky;top:96px;background:var(--card);border-radius:8px;box-shadow:0 2px 12px #0001;overflow:hidden;margin-top:34px}
+ #side h4{margin:0;padding:13px 16px;background:var(--blue);color:#fff;font-size:15px}
+ #side a{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;color:var(--tx);text-decoration:none;border-left:3px solid transparent;border-bottom:1px solid var(--bd);transition:.2s}
+ #side a small{color:var(--mut)}#side a:hover,#side a.act{background:var(--bg);color:var(--blue);border-left-color:var(--yellow);padding-left:20px}
+ .grid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:20px}
+ main h2{margin-top:34px}
+ .nav a:nth-of-type(n+6){display:none}
+ .ads{padding:48px 24px}.ads .adg{max-width:1280px}
+}
+
+/* ===== Patrocinados: foto y video ===== */
+.promos{display:none;max-width:1280px;margin:34px auto 0;padding:0 14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.pm{position:relative;display:flex;align-items:flex-end;min-height:230px;border-radius:8px;overflow:hidden;color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--navy),var(--blue))}
+.pm:nth-child(2){background:linear-gradient(135deg,var(--blue),#0854a8)}.pm:nth-child(3){background:linear-gradient(135deg,#1a2a4d,var(--navy))}
+.pm img,.pm video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}.pm:hover img,.pm:hover video{transform:scale(1.06)}
+.pm div{position:relative;padding:18px;width:100%;background:linear-gradient(transparent,#000b)}.pm b{display:block;font-size:20px}.pm span{font-size:14px;opacity:.9}
+.spb{position:absolute;top:10px;right:10px;z-index:2;background:var(--yellow);color:#1b2a33;font-style:normal;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px}
+.spl{display:block;font-style:normal;font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:1px}
+.ad video{width:56px;height:56px;object-fit:cover;border-radius:8px}
+
+/* ===== Usuario (arriba) y acceso (abajo) ===== */
+.um{position:relative;order:3}.umm{position:absolute;right:0;top:calc(100% + 8px);background:var(--card);color:var(--tx);border-radius:8px;box-shadow:0 10px 30px #0004;min-width:190px;padding:6px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:.2s;z-index:35}.umm.on{opacity:1;pointer-events:auto;transform:none}
+.umm a{display:block;padding:10px 12px;border-radius:6px;color:var(--tx);text-decoration:none}.umm a:hover{background:var(--bg);color:var(--blue)}
+.fa{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media(max-width:640px){#umn{display:none}}
+.pe{position:absolute;top:10px;left:10px;z-index:3;padding:5px 10px;font-size:12px;background:#fffe;color:#101c34}
+.ct{width:28px;height:28px;border-radius:6px;object-fit:cover;vertical-align:middle}.ci{width:46px;height:46px;border-radius:10px;object-fit:cover}
+.addc{border:2px dashed var(--blue);background:transparent;color:var(--blue);border-radius:6px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:30px}.addc span{font-size:14px;font-weight:700}.addc:hover{background:var(--bg)}
+.qa{justify-content:center;align-items:center}.qa .sheet{height:auto;max-height:92vh;border-radius:14px;width:min(440px,94%)}
+
+.pg{display:none;max-width:1100px;margin:44px auto 0;padding:0 16px}.pg>p{max-width:760px;margin:0 auto;text-align:center;line-height:1.7;white-space:pre-wrap}
+.brs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.br{padding:16px;display:flex;flex-direction:column;gap:4px}.br span{color:var(--mut);font-size:14px}
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.nw{cursor:pointer;overflow:hidden;border:0;box-shadow:0 2px 12px #0001;transition:.25s}.nw:hover{transform:translateY(-4px)}
+.nw img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}.nph{aspect-ratio:16/10;display:grid;place-items:center;font-size:40px;background:var(--bg)}.nw div:last-child{padding:12px}.nw h3{margin:4px 0}.nw p{margin:0;color:var(--mut);font-size:14px}.nw small{color:var(--mut)}
+.nl{background:var(--navy);color:#fff;margin-top:44px;padding:26px 16px;text-align:center;border-bottom:1px solid #fff2}.nl div{display:flex;gap:8px;max-width:460px;margin:10px auto 0}.nl input{margin:0}.nl p{margin:8px 0 0;font-size:13px}
+#rdI{width:100%;border-radius:8px;margin:8px 0}
+.pg h2{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:24px;margin:0 0 18px}.pg h2:after{content:"";width:48px;height:3px;background:var(--yellow)}
+</style></head><body>
+<header>
+ <a class="logo" href="#top"><span id="logoBox"></span><span><span id="nm">FERRETERÍA</span><small id="nm2">FREDDY</small></span></a>
+ <div class="sbar"><input class="search" id="q" placeholder="Buscar productos..." oninput="render()"><b>🔍</b></div>
+ <span class="sp"></span>
+ <button class="g" style="color:#fff;border-color:#fff5" onclick="openCart()">🧾 Mi lista (<span id="cc">0</span>)</button>
+ <div class="um" id="um" style="display:none"><button class="g" style="color:#fff;border-color:#fff5" onclick="umm.classList.toggle('on')">👤 <span id="umn"></span> ▾</button><div class="umm" id="umm"><a href="#" onclick="openAdmin();return false">⚙ Administrar</a><a href="#" onclick="umm.classList.remove('on');logout();return false">Salir</a></div></div>
+</header>
+<div class="demo" id="demo" style="display:none">Modo demostración: para probar el administrador toca «🔐 Acceso administrador» abajo (contraseña de prueba: freddy123). Lo que subas se borra al recargar.</div>
+<nav class="nav" id="nav"></nav>
+<section class="hero" id="top"><h1 id="hT"></h1><p id="hS"></p><button class="y" id="hB" onclick="document.getElementById('ofertas').scrollIntoView()">Comprar ahora ›</button><div class="dots" id="dots"></div></section>
+<div class="feat"><div><b>🚚 Envíos seguros y rápidos</b><span>Nos aseguramos de que cada producto llegue en buen estado.</span></div><div><b>✔ Garantía de calidad</b><span>Productos de marcas reconocidas para tu proyecto.</span></div><div><b>💬 Asistencia especializada</b><span>Estamos aquí para ayudarte con todas tus consultas.</span></div></div>
+<section class="promos" id="promos"></section>
+<section class="ads" id="adsWrap" style="display:none"><div class="adh">Marcas que trabajan con nosotros</div><div class="adg" id="adsG"></div></section>
+<main>
+  <aside id="side"><h4>☰ Todas las Categorías</h4><div id="sideL"></div></aside>
+ <div id="content"><p class="empty">Cargando...</p></div>
+</main>
+<section class="pg" id="noticias"><h2>Últimas noticias</h2><div class="news" id="nwL"></div></section>
+<section class="pg" id="nosotros"><h2>Nosotros</h2><p id="abT"></p></section>
+<section class="pg" id="sucursales"><h2>Sucursales</h2><div class="brs" id="brL"></div></section>
+<section style="max-width:640px;margin:26px auto 0;padding:0 14px"><div class="card" style="padding:16px;border-color:var(--yellow)"><h2 style="margin:0 0 4px">💡 ¿No encuentras lo que buscas?</h2><p class="note" style="margin:0 0 8px">Cuéntanos qué producto necesitas y lo buscamos para ti.</p>
+<label>¿Qué producto necesitas?</label><input id="sgP" maxlength="200" placeholder="Ej. Bomba de agua 1 HP"><label>Detalles (medida, marca, cantidad)</label><textarea id="sgD" rows="2" maxlength="800"></textarea><label>Tu nombre y teléfono (opcional)</label><input id="sgN" maxlength="120"><input class="hp" id="sgH" tabindex="-1" autocomplete="off">
+<p><button class="y" style="width:100%" onclick="sendSug()">Enviar sugerencia</button></p><p class="note" id="sgM"></p></div></section>
+<section class="nl"><b>¡Suscríbete a nuestro boletín!</b><div><input id="nlE" type="email" placeholder="Tu correo electrónico" autocomplete="email"><button class="y" onclick="subscribe()">Enviar</button></div><p id="nlM"></p></section>
+<footer><b id="fN"></b><div id="fC"></div><p class="fa"><button class="g" id="admLogin" style="color:#fff;border-color:#fff5" onclick="loginP.classList.add('on')">🔐 Acceso administrador</button><button class="y" id="adminBtn" style="display:none" onclick="openAdmin()">⚙ Administrar</button></p></footer>
+<button class="y fab" id="wa" style="display:none" onclick="sendWA()">💬 WhatsApp</button>
+<div class="toast" id="toast"></div><div class="ddm" id="ddm"></div><button class="up" id="up" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Subir">↑</button>
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><img id="lbi" alt=""></div>
+
+<div class="panel" id="cartP" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet">
+ <div class="row"><h2 style="margin:0">🧾 Mi lista</h2><button class="g n" onclick="cartP.classList.remove('on')">Cerrar</button></div>
+ <p class="note">Arma tu lista y envíala por WhatsApp para consultar disponibilidad.</p>
+ <div id="cartL"></div><label>Tu nombre</label><input id="cn"><label>Nota (opcional)</label><textarea id="cnote" rows="2"></textarea>
+ <p><button class="y" style="width:100%" onclick="sendWA()">Enviar por WhatsApp</button></p>
+</div></div>
+
+<div class="panel" id="loginP" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet">
+ <div class="row"><h2 style="margin:0">🔐 Acceso</h2><button class="g n" onclick="loginP.classList.remove('on')">Cerrar</button></div>
+ <label>Correo</label><input id="le" type="email" autocomplete="username"><label>Contraseña (mínimo 8 caracteres)</label><input id="lp" type="password" autocomplete="current-password">
+ <p class="row"><button onclick="login()">Entrar</button><button class="g" onclick="signup()">Crear cuenta</button></p>
+ <p><button class="g" onclick="resetPw()">Olvidé mi contraseña</button></p>
+ <p class="note">Solo los correos autorizados por el dueño pueden administrar la página.</p><p class="note" id="lm"></p>
+</div></div>
+
+<div class="panel" id="recP"><div class="sheet">
+ <h2 style="margin:0">🔑 Nueva contraseña</h2>
+ <label>Escribe tu nueva contraseña (mínimo 8 caracteres)</label><input id="np" type="password" autocomplete="new-password">
+ <p><button style="width:100%" onclick="setPw()">Guardar contraseña</button></p><p class="note" id="rm"></p>
+</div></div>
+
+<div class="panel qa" id="qaP" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet">
+ <div class="row"><h2 style="margin:0">➕ Agregar producto</h2><button class="g n" onclick="qaP.classList.remove('on')">Listo</button></div>
+ <label>Nombre</label><input id="qn"><div class="row"><div><label>Precio</label><input id="qp" placeholder="$0.00"></div><div><label>Precio anterior</label><input id="qo" placeholder="opcional"></div></div>
+ <label>Sección</label><select id="qc"></select><label><input type="checkbox" id="qf" style="width:auto"> 🔥 Está en oferta</label>
+ <label>Foto</label><input type="file" id="qi" accept="image/*">
+ <p><button class="y" id="qs" style="width:100%" onclick="qSave()">Guardar y agregar otro</button></p><p class="note" id="qm"></p>
+</div></div>
+
+<div class="panel qa" id="rdP" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet">
+ <div class="row"><h2 id="rdT" style="margin:0"></h2><button class="g n" onclick="rdP.classList.remove('on')">Cerrar</button></div>
+ <p class="note" id="rdD"></p><img id="rdI" alt=""><p id="rdB" style="white-space:pre-wrap"></p>
+</div></div>
+
+<div class="panel" id="admP" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet">
+ <div class="row"><h2 style="margin:0">⚙ Administrar</h2><button class="g n" onclick="admP.classList.remove('on')">Cerrar</button><button class="g n" onclick="logout()">Salir</button></div>
+ <p class="note" id="adMsg"></p>
+ <h3 id="pf">➕ Nuevo producto</h3><input type="hidden" id="pid">
+ <label>Nombre</label><input id="pn">
+ <div class="row"><div><label>Precio</label><input id="pp" placeholder="$0.00"></div><div><label>Precio anterior</label><input id="po" placeholder="opcional"></div></div>
+ <label>Sección</label><select id="pc"></select>
+ <label><input type="checkbox" id="pof" style="width:auto"> 🔥 Está en oferta</label>
+ <label>Foto</label><input type="file" id="pi" accept="image/*">
+ <label>Calidad de la foto</label><select id="pq"><option value="1920">Alta (1920 px, recomendada)</option><option value="2560">Muy alta (2560 px)</option><option value="orig">Original sin tocar (máx. 10 MB)</option></select>
+ <p class="note">La tienda muestra una versión liviana y al tocar la foto se abre la de alta calidad.</p>
+ <p class="row"><button id="sv" onclick="saveProd()">Guardar producto</button><button class="g" onclick="clearForm()">Limpiar</button></p>
+ <h3>🗂 Secciones</h3><div id="catL"></div>
+ <input type="file" id="cfi" accept="image/*" hidden><label>Foto de la sección (opcional, ej. foto de la herramienta)</label><input type="file" id="cim" accept="image/*">
+ <div class="row"><input id="cnm" placeholder="Nueva sección"><input id="cem" placeholder="Emoji" style="max-width:70px"><button class="n" onclick="addCat()">Añadir</button></div>
+ <h3>📢 Anuncios de proveedores</h3><div id="adL"></div>
+ <input type="hidden" id="aid"><label>Título (ej. Herramientas para cada proyecto)</label><input id="at"><label>Texto breve</label><input id="ax" maxlength="90"><label>Enlace o WhatsApp (opcional)</label><input id="al" placeholder="https://..."><label>Tipo</label><select id="ak"><option value="promo">Banner grande (debajo de la portada)</option><option value="marca">Marca o proveedor (franja azul oscura)</option></select><label>Origen</label><select id="ao"><option value="marca">Patrocinado por una marca</option><option value="own">Publicidad de la ferretería (nosotros)</option></select><label>Foto (opcional)</label><input type="file" id="ai" accept="image/*"><label>Video (opcional, máx. 50 MB, mejor .mp4)</label><input type="file" id="av" accept="video/mp4,video/webm,video/quicktime">
+ <p class="row"><button id="aSv" onclick="addAd()">Añadir anuncio</button><button class="g" onclick="clearAd()">Limpiar</button></p>
+ <h3>📰 Noticias</h3>
+ <label>Título</label><input id="pt"><label>Texto</label><textarea id="pb" rows="4"></textarea><label>Foto (opcional)</label><input type="file" id="pimg" accept="image/*">
+ <p><button onclick="addPost()">Publicar noticia</button></p><div id="pL"></div>
+ <h3>✉️ Suscriptores del boletín</h3><p class="note" id="subL">0 suscriptores</p><p><button class="g" onclick="copySubs()">Copiar correos</button></p>
+ <h3>💡 Sugerencias de clientes</h3><div id="sgL"></div>
+ <h3>🎨 Datos de la página</h3>
+ <label>Nombre (línea 1)</label><input id="sn1"><label>Nombre (línea 2)</label><input id="sn2">
+ <label>Título principal</label><input id="sht"><label>Subtítulo</label><input id="shs">
+ <label>WhatsApp (código de país, solo números)</label><input id="swa" placeholder="584121234567">
+ <label>Contacto / dirección</label><input id="sct">
+ <label>Nosotros (quiénes son, qué ofrecen)</label><textarea id="sab" rows="4"></textarea>
+ <label>Sucursales (una por línea: Nombre | Dirección | Teléfono)</label><textarea id="sbr" rows="3" placeholder="Sucursal Centro | Calle 1 #23 | 809-000-0000"></textarea>
+ <div class="row"><div><label>Principal</label><input type="color" id="scb"></div><div><label>Acento</label><input type="color" id="scy"></div><div><label>Oscuro</label><input type="color" id="scn"></div></div>
+ <label>Cambiar logo</label><input type="file" id="slg" accept="image/*">
+ <p class="row"><button onclick="saveSite()">Guardar datos</button><button class="g" onclick="resetLogo()">Logo original</button></p>
+ <div id="teamBox"><h3>👥 Equipo (empleados con acceso)</h3><div id="teamL"></div>
+ <div class="row"><input id="te" type="email" placeholder="correo del empleado"><button class="n" onclick="addTeam()">Dar acceso</button></div>
+ <p class="note">Después de darle acceso, el empleado entra con ese correo desde «Acceso administrador» → «Crear cuenta».</p></div>
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>{u=(u||"").trim();if(/^https?:\/\//i.test(u))return u;if(/^\d{7,}$/.test(u))return"https://wa.me/"+u;return""};
+const DEF={n1:"FERRETERÍA",n2:"FREDDY",ht:"Todo para tu obra y tu hogar",hs:"",wa:"",ct:"",cb:"#2958a8",cy:"#f8dc08",cn:"#101c34",logo:""};
+const LOGO='<svg viewBox="0 0 48 52"><path d="M24 2l20 11v26L24 50 4 39V13z" fill="#f8dc08"/><path d="M14 16h20v7H22v5h9v6h-9v8h-8z" fill="#2958a8"/></svg>';
+let sb=null,S={...DEF},cats=[],prods=[],ads=[],cart={},role=null,myEmail=null,DEMO=false;
+const CK="ff_cart";try{cart=JSON.parse(localStorage.getItem(CK)||"{}")||{}}catch(e){cart={}}
+const saveCart=()=>{try{localStorage.setItem(CK,JSON.stringify(cart))}catch(e){}};
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),1600)}
+const isAdmin=()=>!!role;
+function applySite(){const r=document.documentElement.style;r.setProperty("--blue",S.cb);r.setProperty("--yellow",S.cy);r.setProperty("--navy",S.cn);
+ $("nm").textContent=S.n1;$("nm2").textContent=S.n2;$("hT").textContent=S.ht;$("hS").textContent=S.hs||"";$("fN").textContent=S.n1+" "+S.n2;$("fC").textContent=S.ct||"";
+ $("logoBox").innerHTML=S.logo?'<img alt="logo" src="'+esc(S.logo)+'">':LOGO;$("wa").style.display=S.wa?"block":"none";document.title=S.n1+" "+S.n2}
+function pic(p){return p.thumb?'<img loading="lazy" alt="'+esc(p.name)+'" src="'+esc(p.thumb)+'" onclick="zoom(\''+esc(p.full||p.thumb)+'\')">':(()=>{const c=cats.find(c=>c.id===p.cat)||{};return c.img?'<img alt="" src="'+esc(c.img)+'">':c.emoji||"🛠"})()}
+function zoom(u){$("lbi").src=u;$("lb").classList.add("on")}
+function card(p){return '<div class="card">'+(p.offer?'<span class="tag">OFERTA</span>':'')+'<div class="ph">'+pic(p)+'</div><div class="b"><h3>'+esc(p.name)+'</h3><div><span class="pr">'+esc(p.price)+'</span>'+(p.old_price?'<span class="old">'+esc(p.old_price)+'</span>':'')+'</div><button onclick="add(\''+p.id+'\')">+ Agregar a mi lista</button>'+(isAdmin()?'<div class="ctl"><button class="g" onclick="editProd(\''+p.id+'\')">Editar</button><button class="r" onclick="delProd(\''+p.id+'\')">Borrar</button></div>':'')+'</div></div>'}
+const media=a=>a.video?`<video src="${esc(a.video)}" muted loop playsinline autoplay preload="metadata"></video>`:a.img?`<img alt="" src="${esc(a.img)}">`:"";
+function promoCard(a){const u=safeUrl(a.link),t=u?`a href="${esc(u)}" target="_blank" rel="noopener sponsored"`:"div";return `<${t} class="pm"><i class="spb">${a.own?"Ferretería Freddy":"Patrocinado"}</i>${isAdmin()?`<button class="pe" onclick="event.preventDefault();event.stopPropagation();editAd('${a.id}')">📷 Cambiar foto / video</button>`:""}${media(a)}<div><b>${esc(a.title)}</b><span>${esc(a.body)}</span></div></${t.split(" ")[0]}>`}
+function adCard(a){const u=safeUrl(a.link),t=u?'a href="'+esc(u)+'" target="_blank" rel="noopener sponsored"':'div';return '<'+t+' class="ad">'+(media(a)||'<div style="font-size:34px">📣</div>')+'<div><i class="spl">'+(a.own?'Ferretería Freddy':'Patrocinado')+'</i><b>'+esc(a.title)+'</b><span>'+esc(a.body)+'</span></div></'+t.split(" ")[0]+'>'}
+function render(){const q=$("q").value.toLowerCase().trim(),list=prods.filter(p=>!q||p.name.toLowerCase().includes(q));
+ $("nav").innerHTML='<button class="y cdb" onclick="toggleCats(this)">☰ Buscar por Categorías ▾</button><a href="#top">Inicio</a><a href="#ofertas">🔥 Ofertas</a><a href="#noticias">Noticias</a><a href="#nosotros">Nosotros</a><a href="#sucursales">Sucursales</a>'+cats.map(c=>'<a href="#c-'+c.id+'">'+esc(c.emoji||"🛠")+" "+esc(c.name)+'</a>').join("");
+ const of=list.filter(p=>p.offer);
+ let h='<h2 class="of" id="ofertas">🔥 Ofertas</h2>'+(of.length||isAdmin()?'<div class="grid">'+of.map(card).join("")+addTile("of")+'</div>':'<p class="empty">Pronto publicaremos nuevas ofertas.</p>');
+ cats.forEach(c=>{const ps=list.filter(p=>p.cat===c.id);h+='<h2 id="c-'+c.id+'">'+ci(c)+esc(c.name)+'</h2>'+(ps.length||isAdmin()?'<div class="grid">'+ps.map(card).join("")+addTile(c.id)+'</div>':'<p class="empty">Próximamente productos en esta sección.</p>')});
+ $("content").innerHTML=h;$("cc").textContent=Object.values(cart).reduce((a,b)=>a+b,0);
+ const pm=ads.filter(a=>a.kind==="promo"),mk=ads.filter(a=>a.kind!=="promo");$("adsG").innerHTML=mk.map(adCard).join("");$("adsWrap").style.display=mk.length?"block":"none";$("promos").innerHTML=pm.map(promoCard).join("");$("promos").style.display=pm.length?"grid":"none";
+ $("pc").innerHTML=cats.map(c=>'<option value="'+c.id+'">'+esc(c.name)+'</option>').join("");
+ $("catL").innerHTML=cats.map(c=>'<div class="li"><span>'+(c.img?'<img class="ct" src="'+esc(c.img)+'"> ':esc(c.emoji||"")+" ")+esc(c.name)+'</span><button class="g" onclick="catPhoto(\''+c.id+'\')">📷 Foto</button><button class="r" onclick="delCat(\''+c.id+'\')">Quitar</button></div>').join("");
+ $("adL").innerHTML=ads.map(a=>'<div class="li"><span>'+esc(a.title)+(a.kind==="promo"?" · banner":" · marca")+(a.video?" 🎬":"")+'</span><button class="g" onclick="editAd(\''+a.id+'\')">Editar</button><button class="r" onclick="delAd(\''+a.id+'\')">Quitar</button></div>').join("")||'<p class="note">Sin anuncios.</p>'}
+async function load(){const[a,b,c,d,e]=await Promise.all([sb.from("settings").select("*").eq("id",1).maybeSingle(),sb.from("categories").select("*").order("ord"),sb.from("products").select("*").order("created_at",{ascending:false}),sb.from("ads").select("*").order("created_at"),sb.from("posts").select("*").order("created_at",{ascending:false})]);
+ if([a,b,c,d].some(x=>x.error)&&!cats.length&&!prods.length){$("content").innerHTML='<p class="empty">⚠ No pudimos cargar el catálogo. Revisa tu conexión e inténtalo de nuevo en unos minutos.</p>';return}
+ S={...DEF,...(a.data||{})};cats=b.data||[];prods=c.data||[];ads=d.data||[];posts=e.data||[];Object.keys(cart).forEach(i=>{if(!prods.find(p=>p.id===i))delete cart[i]});saveCart();applySite();render()}
+function add(id){cart[id]=(cart[id]||0)+1;saveCart();render();const p=prods.find(x=>x.id===id);toast("✔ "+(p?p.name:"Producto")+" agregado a tu lista")}
+function openCart(){const ids=Object.keys(cart).filter(i=>cart[i]>0);$("cartL").innerHTML=ids.length?ids.map(i=>{const p=prods.find(x=>x.id===i);return p?'<div class="li"><span>'+esc(p.name)+'<br><b>'+esc(p.price)+'</b></span><span class="qty"><button class="g" onclick="qty(\''+i+'\',-1)">−</button>'+cart[i]+'<button class="g" onclick="qty(\''+i+'\',1)">+</button></span></div>':""}).join(""):'<p class="empty">Tu lista está vacía.</p>';cartP.classList.add("on")}
+function qty(i,d){cart[i]=Math.max(0,(cart[i]||0)+d);saveCart();render();openCart()}
+function sendWA(){const items=Object.keys(cart).filter(i=>cart[i]>0).map(i=>{const p=prods.find(x=>x.id===i);return p?"• "+cart[i]+" x "+p.name+" ("+p.price+")":""}).filter(Boolean);
+ const t="Hola, soy "+($("cn").value||"un cliente")+". Quisiera consultar:\n"+(items.join("\n")||"(información general)")+($("cnote").value?"\nNota: "+$("cnote").value:"");
+ if(!S.wa)return alert("El negocio aún no configuró su WhatsApp.");window.open("https://wa.me/"+S.wa.replace(/\D/g,"")+"?text="+encodeURIComponent(t),"_blank")}
+async function sendSug(){if(DEMO)return $("sgM").textContent="Modo demostración: aún no se guardan sugerencias.";const p=$("sgP").value.trim();if(!p||$("sgH").value)return $("sgM").textContent=p?"":"Escribe qué producto necesitas";
+ const r=await sb.from("suggestions").insert({product:p,details:$("sgD").value,customer:$("sgN").value});
+ $("sgM").textContent=r.error?"No se pudo enviar, intenta de nuevo.":"✅ ¡Gracias! Anotamos tu sugerencia.";if(!r.error)["sgP","sgD","sgN"].forEach(i=>$(i).value="")}
+/* ---- imágenes ---- */
+function toBlob(file,max,type,q){return new Promise((ok,no)=>{const im=new Image(),u=URL.createObjectURL(file);im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(b=>b?ok(b):no(new Error("No se pudo procesar")),type,q)};im.onerror=()=>no(new Error("Imagen no válida"));im.src=u})}
+async function put(path,blob,type){const r=await sb.storage.from("media").upload(path,blob,{contentType:type,cacheControl:"31536000"});if(r.error)throw r.error;return sb.storage.from("media").getPublicUrl(path).data.publicUrl}
+const uid=()=>crypto.randomUUID();
+async function upPhoto(file,q){const id=uid(),thumb=await put("p/"+id+"-t.jpg",await toBlob(file,640,"image/jpeg",.8),"image/jpeg");let full;
+ if(q==="orig"){if(file.size>10*1048576)throw new Error("La foto original pesa más de 10 MB");const ext=(file.type.split("/")[1]||"jpg").replace("jpeg","jpg");full=await put("p/"+id+"-o."+ext,file,file.type)}
+ else full=await put("p/"+id+"-f.jpg",await toBlob(file,+q,"image/jpeg",.92),"image/jpeg");return{thumb,full}}
+async function upSmall(file,max,png){return put((png?"logo/":"a/")+uid()+(png?".png":".jpg"),await toBlob(file,max,png?"image/png":"image/jpeg",.85),png?"image/png":"image/jpeg")}
+/* ---- acceso ---- */
+function lmsg(t){$("lm").textContent=t}
+async function login(){if(DEMO){if($("lp").value!=="freddy123")return lmsg("⚠ Contraseña incorrecta (en la demostración es: freddy123)");role="owner";lmsg("");loginP.classList.remove("on");$("lp").value="";return demoUI()}const r=await sb.auth.signInWithPassword({email:$("le").value.trim(),password:$("lp").value});lmsg(r.error?"⚠ Correo o contraseña incorrectos":"")}
+async function signup(){if($("lp").value.length<8)return lmsg("⚠ La contraseña debe tener al menos 8 caracteres");const r=await sb.auth.signUp({email:$("le").value.trim(),password:$("lp").value});lmsg(r.error?"⚠ "+r.error.message:"Revisa tu correo para confirmar la cuenta y luego entra.")}
+async function resetPw(){const e=$("le").value.trim();if(!e)return lmsg("Escribe tu correo arriba");const r=await sb.auth.resetPasswordForEmail(e,{redirectTo:location.origin});lmsg(r.error?"⚠ "+r.error.message:"Te enviamos un correo para cambiar la contraseña.")}
+async function logout(){if(DEMO){role=null;return demoUI()}await sb.auth.signOut()}
+async function setPw(){const v=$("np").value;if(v.length<8)return $("rm").textContent="⚠ Mínimo 8 caracteres";const r=await sb.auth.updateUser({password:v});if(r.error)return $("rm").textContent="⚠ "+r.error.message;$("np").value="";$("rm").textContent="";recP.classList.remove("on");history.replaceState(null,"",location.pathname);toast("✅ Contraseña actualizada")}
+async function check(session){role=null;myEmail=session?.user?.email?.toLowerCase()||null;
+ if(session){const r=await sb.from("admins").select("role").eq("email",myEmail).maybeSingle();role=r.data?r.data.role:null}
+ $("adminBtn").style.display=role?"block":"none";$("admLogin").style.display=role?"none":"block";$("um").style.display=role?"block":"none";$("umn").textContent=(myEmail||"Administrador").split("@")[0];if(role)loginP.classList.remove("on");else admP.classList.remove("on");render()}
+/* ---- administración ---- */
+function msg(t){$("adMsg").textContent=t;setTimeout(()=>$("adMsg").textContent="",4000)}
+async function fillAdmin(){const s=S;$("sab").value=s.about||"";$("sbr").value=s.branches||"";$("sn1").value=s.n1;$("sn2").value=s.n2;$("sht").value=s.ht;$("shs").value=s.hs||"";$("swa").value=s.wa||"";$("sct").value=s.ct||"";$("scb").value=s.cb;$("scy").value=s.cy;$("scn").value=s.cn;
+ $("teamBox").style.display=role==="owner"?"block":"none";if(!DEMO){loadSubs();loadSugs();if(role==="owner")loadTeam()}}
+async function saveProd(){const name=$("pn").value.trim();if(!name)return msg("Escribe el nombre");
+ if(DEMO){const f=$("pi").files[0],id=$("pid").value,row={name,price:$("pp").value||"Consultar",old_price:$("po").value,cat:$("pc").value||null,offer:$("pof").checked};if(f)row.thumb=row.full=URL.createObjectURL(f);if(id)Object.assign(prods.find(x=>x.id===id),row);else prods.unshift({id:"d"+Date.now(),...row});clearForm();render();return msg("✅ Producto guardado (demostración)")}
+ const b=$("sv");b.disabled=true;b.textContent="Guardando...";
+ try{const row={name,price:$("pp").value||"Consultar",old_price:$("po").value,cat:$("pc").value||null,offer:$("pof").checked},f=$("pi").files[0];
+  if(f){const i=await upPhoto(f,$("pq").value);row.thumb=i.thumb;row.full=i.full}
+  const id=$("pid").value,r=id?await sb.from("products").update(row).eq("id",id):await sb.from("products").insert(row);if(r.error)throw r.error;clearForm();await load();msg("✅ Producto guardado")}
+ catch(e){msg("⚠ "+(e.message||"Error"))}b.disabled=false;b.textContent="Guardar producto"}
+function clearForm(){["pid","pn","pp","po"].forEach(i=>$(i).value="");$("pof").checked=false;$("pi").value="";$("pf").textContent="➕ Nuevo producto"}
+function editProd(id){const p=prods.find(x=>x.id===id);if(!p)return;admP.classList.add("on");fillAdmin();$("pid").value=id;$("pn").value=p.name;$("pp").value=p.price;$("po").value=p.old_price||"";$("pc").value=p.cat||"";$("pof").checked=!!p.offer;$("pf").textContent="✏️ Editar producto (la foto actual se mantiene si no eliges otra)"}
+async function delProd(id){if(!confirm("¿Borrar este producto?"))return;if(DEMO){prods=prods.filter(p=>p.id!==id);return render()}const r=await sb.from("products").delete().eq("id",id);if(r.error)alert(r.error.message);await load()}
+async function addCat(){const n=$("cnm").value.trim();if(!n)return;const f=$("cim").files[0];
+ if(DEMO){cats.push({id:"dc"+Date.now(),name:n,emoji:$("cem").value||"🛠",ord:cats.length,img:f?URL.createObjectURL(f):""});$("cnm").value=$("cem").value=$("cim").value="";return render()}
+ let img="";try{if(f)img=await upSmall(f,800,false)}catch(e){return msg("⚠ "+e.message)}
+ const r=await sb.from("categories").insert({name:n,emoji:$("cem").value||"🛠",ord:cats.length,img});if(r.error)return msg("⚠ "+r.error.message);$("cnm").value=$("cem").value=$("cim").value="";await load()}
+let ctgt=null;function catPhoto(id){ctgt=id;$("cfi").click()}
+$("cfi").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(!f||!ctgt)return;try{if(DEMO){cats.find(c=>c.id===ctgt).img=URL.createObjectURL(f);render()}else{const img=await upSmall(f,800,false),r=await sb.from("categories").update({img}).eq("id",ctgt);if(r.error)throw r.error;await load()}msg("✅ Foto de la sección guardada")}catch(x){msg("⚠ "+x.message)}};
+const ci=c=>c.img?'<img class="ci" alt="" src="'+esc(c.img)+'">':'<i>'+esc(c.emoji||"🛠")+'</i>';
+const addTile=k=>isAdmin()?`<button class="addc" onclick="quickAdd('${k}')">➕<span>Agregar ${k==="of"?"oferta":"producto"}</span></button>`:"";
+function quickAdd(k){$("qc").innerHTML=cats.map(c=>'<option value="'+c.id+'">'+esc(c.name)+'</option>').join("");if(k!=="of")$("qc").value=k;$("qf").checked=k==="of";$("qm").textContent="";qaP.classList.add("on");setTimeout(()=>$("qn").focus(),100)}
+async function qSave(){const name=$("qn").value.trim();if(!name)return $("qm").textContent="Escribe el nombre";const b=$("qs");b.disabled=true;
+ try{const row={name,price:$("qp").value||"Consultar",old_price:$("qo").value,cat:$("qc").value||null,offer:$("qf").checked},f=$("qi").files[0];
+  if(DEMO){if(f)row.thumb=row.full=URL.createObjectURL(f);prods.unshift({id:"d"+Date.now(),...row});render()}
+  else{if(f){const i=await upPhoto(f,"1920");row.thumb=i.thumb;row.full=i.full}const r=await sb.from("products").insert(row);if(r.error)throw r.error;await load()}
+  ["qn","qp","qo","qi"].forEach(i=>$(i).value="");$("qm").textContent="✅ Agregado. Puedes agregar otro.";$("qn").focus()}
+ catch(e){$("qm").textContent="⚠ "+(e.message||"Error")}b.disabled=false}
+function demoUI(){$("admLogin").style.display=role?"none":"block";$("adminBtn").style.display=role?"block":"none";$("um").style.display=role?"block":"none";$("umn").textContent="Administrador";if(!role){admP.classList.remove("on");qaP.classList.remove("on")}render()}
+async function delCat(id){if(!confirm("¿Quitar esta sección? Sus productos quedarán sin sección."))return;const r=await sb.from("categories").delete().eq("id",id);if(r.error)msg(r.error.message);await load()}
+async function addAd(){const t=$("at").value.trim();if(!t)return msg("Escribe el título");
+ if(DEMO){const f=$("ai").files[0],v=$("av").files[0],aid=$("aid").value,row={title:t,body:$("ax").value,link:$("al").value,kind:$("ak").value,own:$("ao").value==="own"},im=f?URL.createObjectURL(f):"",vi=v?URL.createObjectURL(v):"";if(aid){const o=ads.find(a=>a.id===aid);Object.assign(o,row);if(im){o.img=im;if(!vi)o.video=""}if(vi)o.video=vi}else ads.push({id:"d"+Date.now(),...row,img:im,video:vi});clearAd();render();return msg("✅ Anuncio guardado (demostración: se borra al recargar)")}
+try{const f=$("ai").files[0],v=$("av").files[0],big=$("ak").value==="promo";if(v&&v.size>52428800)return msg("⚠ El video pesa más de 50 MB");msg("Subiendo…");const img=f?await upSmall(f,big?1280:300,false):"";const video=v?await put("v/"+uid()+(/\.webm$/i.test(v.name)?".webm":/\.mov$/i.test(v.name)?".mov":".mp4"),v,v.type||"video/mp4"):"";const row={title:t,body:$("ax").value,link:$("al").value,kind:$("ak").value,own:$("ao").value==="own"},aid=$("aid").value;if(aid){if(img){row.img=img;if(!video)row.video=""}if(video)row.video=video}else{row.img=img;row.video=video}const r=aid?await sb.from("ads").update(row).eq("id",aid):await sb.from("ads").insert(row);if(r.error)throw r.error;clearAd();await load();msg("✅ Anuncio guardado")}catch(e){msg("⚠ "+e.message)}}
+function editAd(id){const a=ads.find(x=>x.id===id);if(!a)return;umm.classList.remove("on");admP.classList.add("on");fillAdmin();$("aid").value=id;$("at").value=a.title;$("ax").value=a.body||"";$("al").value=a.link||"";$("ak").value=a.kind||"marca";$("ao").value=a.own?"own":"marca";$("ai").value=$("av").value="";$("aSv").textContent="Guardar cambios";msg("Elige una foto o un video nuevo para cambiarlo");$("at").scrollIntoView({block:"center"})}
+function clearAd(){["at","ax","al","ai","av","aid"].forEach(i=>$(i).value="");$("aSv").textContent="Añadir anuncio"}
+async function delAd(id){if(DEMO){ads=ads.filter(a=>a.id!==id);return render()}await sb.from("ads").delete().eq("id",id);await load()}
+async function saveSite(){if(DEMO){Object.assign(S,{n1:$("sn1").value,n2:$("sn2").value,ht:$("sht").value,hs:$("shs").value,ct:$("sct").value,about:$("sab").value,branches:$("sbr").value});applySite();render();return msg("✅ Datos guardados (demostración)")}try{const row={n1:$("sn1").value,n2:$("sn2").value,ht:$("sht").value,hs:$("shs").value,wa:$("swa").value,ct:$("sct").value,about:$("sab").value,branches:$("sbr").value,cb:$("scb").value,cy:$("scy").value,cn:$("scn").value},f=$("slg").files[0];if(f)row.logo=await upSmall(f,400,true);
+ const r=await sb.from("settings").update(row).eq("id",1);if(r.error)throw r.error;await load();msg("✅ Datos guardados")}catch(e){msg("⚠ "+e.message)}}
+async function resetLogo(){await sb.from("settings").update({logo:""}).eq("id",1);await load()}
+async function loadSugs(){const r=await sb.from("suggestions").select("*").order("created_at",{ascending:false}).limit(100);$("sgL").innerHTML=(r.data||[]).map(s=>'<div class="li '+(s.done?'done':'')+'"><span><b>'+esc(s.product)+'</b><br><span class="sm">'+esc(s.details)+'</span><br><span class="sm">'+esc(s.customer)+' · '+new Date(s.created_at).toLocaleDateString()+'</span></span><span class="tb"><button class="g" onclick="doneSug(\''+s.id+'\','+!s.done+')">'+(s.done?'↩':'✔')+'</button><button class="r" onclick="delSug(\''+s.id+'\')">🗑</button></span></div>').join("")||'<p class="note">Aún no hay sugerencias.</p>'}
+async function doneSug(id,v){await sb.from("suggestions").update({done:v}).eq("id",id);loadSugs()}
+async function delSug(id){await sb.from("suggestions").delete().eq("id",id);loadSugs()}
+async function loadTeam(){const r=await sb.from("admins").select("*").order("email");$("teamL").innerHTML=(r.data||[]).map(a=>'<div class="li"><span>'+esc(a.email)+' <span class="note">('+(a.role==="owner"?"dueño":"empleado")+')</span></span>'+(a.email===myEmail?'':'<button class="r" onclick="delTeam(\''+esc(a.email)+'\')">Quitar</button>')+'</div>').join("")}
+async function addTeam(){const e=$("te").value.trim().toLowerCase();if(!e)return;const r=await sb.from("admins").insert({email:e,role:"editor"});if(r.error)return msg("⚠ "+r.error.message);$("te").value="";loadTeam()}
+async function delTeam(e){if(!confirm("¿Quitar el acceso a "+e+"?"))return;await sb.from("admins").delete().eq("email",e);loadTeam()}
+/* ---- inicio ---- */
+
+let hi=0,hP=false;
+const HS=()=>[{t:S.ht,s:S.hs,h:"ofertas"}].concat(cats.slice(0,2).map(c=>({t:"Encuentra "+c.name,s:"Mira todo lo que tenemos en "+c.name.toLowerCase()+".",h:"c-"+c.id})));
+function heroGo(i){const h=$("top"),L=HS();hi=(i+L.length)%L.length;h.classList.add("out");setTimeout(()=>{const x=L[hi];$("hT").textContent=x.t;$("hS").textContent=x.s||"";$("hB").onclick=()=>{const e=$(x.h);e&&e.scrollIntoView()};h.style.setProperty("--sa",["45deg","-45deg","90deg"][hi%3]);$("dots").innerHTML=L.map((_,k)=>'<i class="'+(k===hi?"on":"")+'" onclick="heroGo('+k+')"></i>').join("");h.classList.remove("out")},350)}
+setInterval(()=>{if(!hP&&!document.hidden)heroGo(hi+1)},6000);
+$("top").onmouseenter=()=>hP=true;$("top").onmouseleave=()=>hP=false;
+function openAdmin(){umm.classList.remove("on");admP.classList.add("on");fillAdmin()}
+document.addEventListener("click",e=>{if(!e.target.closest(".um"))umm.classList.remove("on")});
+function toggleCats(b){const m=$("ddm");if(m.classList.toggle("on")){const r=b.getBoundingClientRect();m.style.top=r.bottom+6+"px";m.style.left=Math.max(8,Math.min(r.left,innerWidth-m.offsetWidth-8))+"px"}}
+document.addEventListener("click",e=>{if(!e.target.closest(".cdb,#ddm"))$("ddm").classList.remove("on")});
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll("#nav a,#sideL a").forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-30% 0px -60% 0px"});
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rv.unobserve(e.target)}}),{threshold:.08});
+function afterRender(){$("ddm").innerHTML=cats.map(c=>`<a href="#c-${c.id}" onclick="ddm.classList.remove('on')">${esc(c.emoji||"🛠")} ${esc(c.name)}</a>`).join("");
+ document.querySelectorAll("#content [id]").forEach(e=>spy.observe(e));document.querySelectorAll(".card:not(.rv)").forEach(c=>{c.classList.add("rv");rv.observe(c)});
+ $("sideL").innerHTML=`<a href="#ofertas">🔥 Ofertas</a>`+cats.map(c=>`<a href="#c-${c.id}">${c.img?`<img class="ct" alt="" src="${esc(c.img)}">`:esc(c.emoji||"🛠")} ${esc(c.name)}<small>${prods.filter(p=>p.cat===c.id).length}</small></a>`).join("");
+ renderExtra();
+ if(!afterRender.h){afterRender.h=1;heroGo(0)}}
+{const r0=render;render=function(){r0();afterRender()}}
+{const a0=add;add=function(id){a0(id);const b=document.querySelector("header .g");b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump")}}
+addEventListener("scroll",()=>{document.querySelector("header").classList.toggle("sc",scrollY>10);$("up").classList.toggle("on",scrollY>600)},{passive:true});
+const ag=$("adsG");let ap=false;ag.onmouseenter=ag.ontouchstart=()=>ap=true;ag.onmouseleave=ag.ontouchend=()=>ap=false;
+setInterval(()=>{if(ap||$("adsWrap").style.display==="none")return;ag.scrollLeft+=1;if(ag.scrollLeft+ag.clientWidth>=ag.scrollWidth-1)ag.scrollLeft=0},30);
+let posts=[],SUBS=[];
+function renderExtra(){const ab=(S.about||"").trim(),br=(S.branches||"").split("\n").map(x=>x.trim()).filter(Boolean);
+ $("nosotros").style.display=ab?"block":"none";$("abT").textContent=ab;
+ $("sucursales").style.display=br.length?"block":"none";$("brL").innerHTML=br.map(l=>{const[a,b,c]=l.split("|").map(x=>x.trim());return `<div class="card br"><b>📍 ${esc(a)}</b><span>${esc(b||"")}</span><span>${esc(c||"")}</span></div>`}).join("");
+ $("noticias").style.display=posts.length||isAdmin()?"block":"none";
+ $("nwL").innerHTML=posts.slice(0,6).map(p=>`<article class="card nw" onclick="readPost('${p.id}')">${p.img?`<img alt="" src="${esc(p.img)}">`:'<div class="nph">📰</div>'}<div><small>${new Date(p.created_at).toLocaleDateString("es")}</small><h3>${esc(p.title)}</h3><p>${esc((p.body||"").slice(0,90))}…</p></div></article>`).join("")||'<p class="empty">Aún no hay noticias.</p>';
+ $("pL").innerHTML=posts.map(p=>`<div class="li"><span>${esc(p.title)}</span><button class="r" onclick="delPost('${p.id}')">Quitar</button></div>`).join("");
+ ["noticias","nosotros","sucursales"].forEach(k=>{const a=document.querySelector('#nav a[href="#'+k+'"]');if(a)a.style.display=$(k).style.display==="none"?"none":""})}
+function readPost(id){const p=posts.find(x=>x.id===id);if(!p)return;$("rdT").textContent=p.title;$("rdD").textContent=new Date(p.created_at).toLocaleDateString("es");$("rdI").style.display=p.img?"block":"none";$("rdI").src=p.img||"";$("rdB").textContent=p.body||"";rdP.classList.add("on")}
+async function addPost(){const t=$("pt").value.trim();if(!t)return msg("Escribe el título");const f=$("pimg").files[0];
+ try{if(DEMO){posts.unshift({id:"d"+Date.now(),title:t,body:$("pb").value,img:f?URL.createObjectURL(f):"",created_at:new Date().toISOString()})}
+ else{const img=f?await upSmall(f,1280,false):"",r=await sb.from("posts").insert({title:t,body:$("pb").value,img});if(r.error)throw r.error;await load()}
+ ["pt","pb","pimg"].forEach(i=>$(i).value="");render();msg("✅ Noticia publicada")}catch(e){msg("⚠ "+e.message)}}
+async function delPost(id){if(!confirm("¿Quitar esta noticia?"))return;if(DEMO){posts=posts.filter(p=>p.id!==id);return render()}await sb.from("posts").delete().eq("id",id);await load()}
+async function loadSubs(){const r=await sb.from("subscribers").select("email").order("created_at",{ascending:false});SUBS=(r.data||[]).map(x=>x.email);$("subL").textContent=SUBS.length+" suscriptor(es)"}
+function copySubs(){if(!SUBS.length)return msg("Aún no hay suscriptores");navigator.clipboard.writeText(SUBS.join(", ")).then(()=>msg("✅ Correos copiados"),()=>msg("⚠ No se pudo copiar"))}
+async function subscribe(){const m=$("nlE").value.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(m))return $("nlM").textContent="Escribe un correo válido";if(DEMO){$("nlE").value="";return $("nlM").textContent="✅ ¡Gracias! (demostración)"}
+ const r=await sb.from("subscribers").insert({email:m}),ok=!r.error||r.error.code==="23505";$("nlM").textContent=ok?"✅ ¡Gracias por suscribirte!":"⚠ No se pudo suscribir, inténtalo más tarde";if(ok)$("nlE").value=""}
+function loadDemo(){DEMO=true;$("demo").style.display="block";S={...S,about:"Texto de ejemplo: aquí cuentas quiénes son, desde cuándo atienden y qué productos ofrecen.",branches:"Sucursal Centro | Calle Principal 123 | 809-000-0000\nSucursal Norte | Av. Norte 45 | 809-111-1111"};posts=[{id:"n1",title:"¡Bienvenidos a nuestro blog!",body:"Texto de ejemplo. Aquí publicas novedades, ofertas y consejos para tus clientes.",img:"",created_at:new Date().toISOString()},{id:"n2",title:"Herramientas esenciales para tu proyecto",body:"Texto de ejemplo con una lista de herramientas recomendadas.",img:"",created_at:new Date().toISOString()},{id:"n3",title:"¿Planeando una renovación?",body:"Texto de ejemplo sobre pinturas, cerámica y baño.",img:"",created_at:new Date().toISOString()}];["resetLogo","addTeam","delCat"].forEach(n=>{const f=window[n];window[n]=(...a)=>DEMO?msg("Modo demostración: esto funciona al conectar la base de datos"):f(...a)});window.signup=window.resetPw=()=>lmsg("Modo demostración: solo con la base de datos real");
+ cats=[{id:"c1",name:"Plomería",emoji:"🚰"},{id:"c2",name:"Cerámica y baño",emoji:"🛁"},{id:"c3",name:"Pintura",emoji:"🎨"},{id:"c4",name:"Electricidad",emoji:"💡"},{id:"c5",name:"Mantenimiento de piscina",emoji:"🏊"},{id:"c6",name:"Tornillos y fijaciones",emoji:"🔩"}];
+ prods=[{id:"p1",name:"Llave de paso 1/2\"",price:"$4.50",old_price:"$6.00",cat:"c1",offer:true},{id:"p2",name:"Tubo PVC 3/4\" x 3 m",price:"$3.20",old_price:"",cat:"c1",offer:false},{id:"p3",name:"Pintura blanca 1 galón",price:"$18.00",old_price:"$22.00",cat:"c3",offer:true},{id:"p4",name:"Cable eléctrico #12 (metro)",price:"$1.10",old_price:"",cat:"c4",offer:false},{id:"p5",name:"Cloro granulado 1 kg",price:"$7.50",old_price:"",cat:"c5",offer:false},{id:"p6",name:"Tornillos para madera (caja)",price:"$2.80",old_price:"",cat:"c6",offer:false}];
+ ads=[{id:"a1",title:"Herramientas para cada proyecto",body:"Explora ahora ›",link:"",img:"",video:"",kind:"promo"},{id:"a2",title:"Descubre nuestras colecciones",body:"Nuevas llegadas",link:"",img:"",video:"",kind:"promo"},{id:"a3",title:"Soluciones para profesionales",body:"Disponible ahora",link:"",img:"",video:"",kind:"promo"},{id:"a4",title:"Pinturas Tucán",body:"Colores que duran",link:"",img:"",video:"",kind:"marca"},{id:"a5",title:"Truper",body:"Herramientas",link:"",img:"",video:"",kind:"marca"}];render()}
+(async()=>{applySite();
+ if(!window.CFG||!CFG.url||!CFG.key||/TU-PROYECTO|TU-CLAVE/.test(CFG.url+CFG.key)){loadDemo();return}
+ if(!window.supabase){$("content").innerHTML='<p class="empty">⚠ No se pudo cargar un componente de la página. Revisa tu conexión y recarga.</p>';return}
+ sb=supabase.createClient(CFG.url,CFG.key);await load();
+ sb.auth.onAuthStateChange((e,s)=>{if(e==="PASSWORD_RECOVERY")recP.classList.add("on");setTimeout(()=>check(s),0)});
+ const{data}=await sb.auth.getSession();check(data.session)})();
+</script></body></html>
